@@ -1,0 +1,12 @@
+venv/
+.vscode
+hf1/__pycache__/
+hf1/models/__pycache__/
+.idea/
+instance/
+hf1.egg-info/
+instance/hf1.db
+features/__pycache__
+mylogging.log
+features/screenshot
+encoder/mylogging.log

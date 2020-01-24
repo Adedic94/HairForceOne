@@ -1,0 +1,22 @@
+Importeren van csv file naar de database. gebruik van pandas PD:
+https://stackoverflow.com/questions/43453420/import-csv-to-database-using-sqlalchemy
+
+Appenden van nieuwe rij in de bestaande csv file, die automatisch wordt gerefresht door pyhton:
+https://stackoverflow.com/questions/2363731/append-new-row-to-old-csv-file-python
+
+Soort van google agenda, die gebruikt kan worden voor medewerkers om werkroosters in te zien, tevens ook te gebruiken om eventuele reserevringen in te laten zien of voor
+managers om werkroosters in te vullen of aan te passen.
+Mogelijke PHP form gebruiken om data uit reserveringpagina door te sturen naar agenda:
+https://github.com/Serhioromano/bootstrap-calendar
+
+Voor kiezen van datum voor de reservering pagina:
+https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/date
+
+En andere simpele manier om een datum te vinden (1 javascript bestand):
+http://www.javascriptkit.com/script/script2/tengcalendar.shtml
+
+De relaties in een sqlalchemy database worden hier beschreven:
+https://docs.sqlalchemy.org/en/13/orm/basic_relationships.html
+
+Hoe user access te definen binnen een flask omgeving!
+https://blog.tecladocode.com/learn-python-defining-user-access-roles-in-flask/

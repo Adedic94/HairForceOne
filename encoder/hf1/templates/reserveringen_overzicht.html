@@ -1,0 +1,53 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<h2>{{ title }}</h2>
+<h3>{{ message }}</h3>
+
+
+<table class="table2" style="width: 80%">
+	<tbody>
+		<tr>
+			<th>Reservering</th>
+			<th>Start tijdslot</th>
+			<th>Datum</th>
+			<th>Medewerker</th>
+			<th>Klant</th>
+			<th>Dienst</th>
+
+		</tr>
+		{% for reservering in reserveringen_overzicht %}
+		<tr>
+			<td style="width: 20%">{{reservering.id}}</td>
+			{% for tijdslot in overzicht_tijdslot %}
+			{% if tijdslot.id == reservering.tijdslot_id %}
+			<td style="width: 20%">{{tijdslot.omschrijving}}</td>
+			{% endif %}
+			{% endfor %}
+			<td style="width: 20%">{{reservering.datum}}</td>
+			<!-- <td style="width: 20%">{{reservering.dienst}}</td> -->
+			{% for medewerker in overzicht_medewerkers %}
+			{% if medewerker.id == reservering.medewerker_id %}
+			<td style="width: 20%">{{medewerker.voornaam + ' ' + medewerker.achternaam}}</td>
+			{% endif %}
+			{% endfor %}
+			{% for klant in overzicht_klanten %}
+			{% if klant.id == reservering.klant_id %}
+			<td style="width: 20%">{{klant.voornaam + ' ' + klant.achternaam}}</td>
+			{% endif %}
+			{% endfor %}
+			{% for dienst in overzicht_diensten %}
+			{% if dienst.id == reservering.dienst_id %}
+			<td style="width: 20%">{{dienst.omschrijving}}</td>
+
+			{% endif %}
+
+			{% endfor %}
+			<!-- <td style="width: 20%">{{reservering.Datum}}</td> -->
+		</tr>
+		{% endfor %}
+	</tbody>
+</table>
+
+
+{% endblock %}

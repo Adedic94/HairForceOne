@@ -1,0 +1,65 @@
+{% extends "layout.html" %}
+
+
+{% block content %}
+
+
+<body></body>
+
+<!-- Page Content -->
+<div class="container">
+
+	<h2 class="font-weight-light text-center text-lg-left mt-4 mb-0">{{ title }}</h2>
+
+	<hr class="mt-2 mb-5">
+
+	<div class="row text-center text-lg-left">
+
+		<div class="col-md-4 col-xs-12">
+			<div class="hovereffect">
+				<img class="img-responsive" src="http://hairoscoop.nl/wp-content/uploads/2019/03/HAIR-CUTTING-Colour-Tech-Hair-Studio-1-400x300.jpg" alt="">
+				<div class="overlay">
+					<h2>WASSEN, KNIPPEN, STYLEN</h2>
+					<a class='info2' href="{{ url_for('bp_services.Wasmassage_knippen_stylen') }}">Klik hier</a>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-4 col-xs-12">
+			<div class="hovereffect">
+				<img class="img-responsive" src="http://hairoscoop.nl/wp-content/uploads/2019/03/gallery-item9-2-400x300.jpg" alt="">
+				<div class="overlay">
+					<h2>MODELFÖNEN</h2>
+					<a class='info2' href="{{ url_for('bp_services.modelföhnen') }}">Klik hier</a>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-4 col-xs-12">
+			<div class="hovereffect">
+				<img class="img-responsive" src="https://www.stylesalute.com/wp-content/uploads/2019/05/10-Examples-Of-Dark-Brown-Hair-Highlights-400x300.jpg" alt="">
+				<div class="overlay">
+					<h2>KLEUREN</h2>
+					<a class='info2' href="{{ url_for('bp_services.kleuren_balayage_highlights') }}">Klik hier</a>
+				</div>
+			</div>
+		</div>
+
+
+	</div>
+
+	{% if ingelogd == true %}
+	<p>
+		<a class="btn btn-minimal" href="{{ url_for('bp_services.show_diensten_edit') }}">Behadelingen aanpassen</a>
+	</p>
+	{% endif %}
+</div>
+<!-- /.container -->
+
+
+		
+
+{% endblock %}
+
+
+
+
+<!-- 

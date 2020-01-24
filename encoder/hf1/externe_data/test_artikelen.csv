@@ -1,0 +1,23 @@
+artikelgroep_id,omschrijving,actuele_voorraad,gewenste_minimale_voorraad,gewenste_maximale_voorraad,backorder_voorraad,advies_verkoopprijs,aanmaak_datum,vervallen
+2,nulla quisque arcu,6,2,11,4,"€7,81",2019-06-13,true
+5,nibh,7,2,11,3,"€6,72",2019-06-13,true
+5,congue eget,5,3,10,3,"€39,20",2019-06-13,false
+4,convallis,6,1,12,5,"€23,32",2019-06-13,false
+5,sed ante,8,2,9,3,"€24,78",2019-06-13,true
+5,in,7,1,12,2,"€6,37",2019-06-13,false
+4,eu sapien,8,1,11,3,"€22,48",2019-06-13,true
+5,lectus,8,2,9,4,"€25,95",2019-06-13,true
+1,velit nec nisi,5,1,12,2,"€6,08",2019-06-13,false
+3,pellentesque,7,2,10,0,"€24,55",2019-06-13,false
+1,quis lectus,5,1,10,3,"€8,40",2019-06-13,true
+4,duis bibendum felis,4,1,10,5,"€19,84",2019-06-13,true
+1,id consequat,7,1,10,2,"€13,44",2019-06-13,false
+3,magna ac consequat,5,2,11,3,"€16,86",2019-06-13,true
+1,odio,7,2,9,1,"€25,54",2019-06-13,true
+3,vel sem,7,2,9,1,"€52,82",2019-06-13,true
+2,ac enim,4,1,12,5,"€27,63",2019-06-13,false
+1,sit amet,5,2,10,0,"€44,74",2019-06-13,false
+1,varius ut,8,3,10,1,"€27,22",2019-06-13,false
+4,in,8,3,10,4,"€25,65",2019-06-13,false
+5,quam,6,3,10,2,"€22,82",2019-06-13,true
+5,sapien,8,1,9,2,"€33,60",2019-06-13,true

@@ -1,0 +1,52 @@
+{% extends "layout.html" %} {% block content %}
+<h2>{{ title }}</h2>
+<h3>{{ message }}</h3>
+
+<p>
+	Selecteer een medewerker
+	<select name="medewerker" onclick="getOption(id)" form="rooster_form" id="medewerker_input">
+	  {% for medewerker in overzicht_medewerkers %}
+	  <option value="{{medewerker.id}}">{{medewerker.voornaam}} {{medewerker.achternaam}}</option>
+	  {% endfor %}
+	</select>
+</p>
+  
+  <p>
+	De geselecteerde medewerker is:
+	<span class="medewerker_input_o"></span>
+  </p>
+
+  <button class="btn btn-minimal" id="aanpassen" onclick="window.location.href='/rooster/aanpassen'">Aanpassen</button>
+
+<table class="table2" style="width: 50%">
+  <thead>
+    <tr>
+      <th>Medewerker</th>
+      <th>Tijdslot</th>
+      <th>Dag</th>
+      <th>Beschikbaarheid</th>
+    </tr>
+  </thead>
+  <tbody id="rooster_body">
+    {% for werkrooster in rooster %}
+    <tr>
+      {% for medewerker in overzicht_medewerkers %} {% if medewerker.id ==
+      werkrooster.medewerker_id %}
+      <td style="width: 20%">
+        {{medewerker.voornaam + ' ' + medewerker.achternaam}}
+      </td>
+      {% endif %} {% endfor %} {% for tijdslot in overzicht_tijdslot %} {% if
+      tijdslot.id == werkrooster.tijdslot_id %}
+      <td style="width: 20%">{{tijdslot.omschrijving}}</td>
+      {% endif %} {% endfor %}
+      <td style="width: 20%">{{werkrooster.dag}}</td>
+      <td style="width: 20%">{{werkrooster.beschikbaarheid_code}}</td>
+      {% endfor %}
+    </tr>
+  </tbody>
+</table>
+
+<script src="//code.jquery.com/jquery-1.12.4.js"></script>
+<script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script src="/static/scripts/rooster.js"></script>
+{% endblock %}

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	{% if title is defined %}
+	<title>{{ title }} - HairForce One</title>
+	{% else %}
+	<title>HairForce One</title>
+	{% endif %}
+
+
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="/static/css/bootstrap.min.css" />
+	<link href="https://fonts.googleapis.com/css?family=Amaranth&display=swap" rel="stylesheet">
+	<script src="/static/scripts/modernizr-2.6.2.js"></script>
+
+	<link rel="shortcut icon" href="\static\img\non-animated-favicon.ico" type="image/x-icon">
+	<link rel="icon" href="\static\img\favicon.ico" type="image/x-icon">
+
+
+
+	<link rel="stylesheet" type="text/css" href="/static/css/site.css" />
+
+</head>
+
+<body>
+	<script src="/static/scripts/jquery-1.10.2.js"></script>
+	<script src="/static/scripts/bootstrap.js"></script>
+	<script src="/static/scripts/respond.js"></script>
+	<link rel="stylesheet" type="text/css" href="/static/css/site.css" />
+	<div class="navbar navbar-static-top navbar-inverse">
+		<link rel="stylesheet" type="text/css" href="/static/css/site.css" />
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+			</div>
+			<div class="navbar-collapse collapse">
+				<ul class="nav navbar-nav">
+					<li><a href="{{ url_for('bp_main.home') }}">Home</a></li>
+					<li><a href="{{ url_for('bp_main.about') }}">Over</a></li>
+					<li><a href="{{ url_for('bp_main.contact') }}">Contact</a></li>
+				</ul>
+				<ul class="nav navbar-nav navbar-right">
+					{% if ( (mod == true) and (ingelogd == true) ) %}
+					<li><a href="{{ url_for('bp_reserveringen_overzicht.index') }}">Reserveringen overzicht </a></li>
+					<li><a href="{{ url_for('bp_rooster.index') }}">Werkrooster </a></li>
+					{% endif %}
+
+					{% if ingelogd == true %}
+					<li><a href="{{ url_for('bp_login.delete_cookie') }}">Log uit</a></li>
+					{% endif %}
+
+					{% if ingelogd == false %}
+					<li><a href="{{ url_for('bp_login.login_user') }}">Login</a></li>
+					{% endif %}
+					<li><a href="{{ url_for('bp_account.maak_account') }}">Registreren</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+
+	<div class="container body-content">
+		{% block content %}{% endblock %}
+		<hr />
+		<footer>
+			<p>&copy; {{ g.year }} - DevOps Traineeship door Testconsultancy Groep - version: {{ config['APP_VERSION'] }}</p>
+		</footer>
+	</div>
+
+
+	{% block scripts %}{% endblock %}
+
+</body>
+
+</html>

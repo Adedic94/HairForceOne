@@ -1,0 +1,115 @@
+{% extends "layout.html" %} {% block content %}
+
+
+
+<h2>{{ title }}</h2>
+<h3>{{ message }}</h3>
+
+{% if errors is defined %}
+<div class="row">
+  <div class="col-xs-12 form-group">
+    <div class="alert alert-danger" role="alert">
+      <h5 class="alert-heading">Er is iets mis gegaan</h5>
+      <ul>
+        {% for error in errors %}
+        <li>{{error}}</li>
+        {% endfor %}
+      </ul>
+      {{error}}
+    </div>
+  </div>
+</div>
+{% endif %}
+
+
+<div id="accordion">
+  <h3>Selecteer een behandeling</h3>
+  <div>
+    <select class="form-control form-control-lg" name="dienst_dropdown" onclick="getOption(id)" form="reservering_form" id="dienst_input">
+      {% for Dienst in diensten %}
+      <option value="{{Dienst.omschrijving}}">{{Dienst.omschrijving}}</option>
+      {% endfor %}
+    </select>
+    <input type="text" class="invisible" id="dienst_input2" form="reservering_form" name="dienst" />
+  </div>
+
+  <h3>Selecteer een datum</h3>
+  <div>
+    <div id="datepicker"></div>
+    <input class="invisible" type="text" id="datum_input" form="reservering_form" name="datum" />
+    <!-- <p id="selected_date">Choose a date</p> -->
+  </div>
+
+  <h3>Selecteer een medewerker</h3>
+  <div>
+    <select class="form-control form-control-lg" name="medewerker_dropdown" id="medewerker_input" onclick="getOption(id);enableTijdsloten()" form="reservering_form">
+      {% for Medewerker in medewerkers %}
+      <option value="{{Medewerker.voornaam}}">{{Medewerker.voornaam}}</option>
+      {% endfor %}
+    </select>
+    <input type="text" class="invisible" id="medewerker_input2" form="reservering_form" name="medewerker" />
+  </div>
+
+  <h3>Selecteer een tijdstip</h3>
+  <div>
+    <select class="form-control form-control-lg"  class="highlight" disabled name="tijdslot" onclick="getOption(id)" form="reservering_form" id="tijdslot_input">
+      {% for Tijdslot in tijdslots %}
+      <option value="{{Tijdslot.omschrijving}}">{{Tijdslot.omschrijving}}</option>
+      {% endfor %}
+      <!-- <input type="text" class="invisible" id="tijdslot_input2" form = "reservering_form" name="tijdslot_dropdown" /> -->
+    </select>
+  </div>
+
+  <h3>Controleer uw keuzes</h3>
+  <div>
+    <ul>
+      <li>De geselecteerde dienst is: <span class="dienst_input_o"></span></li>
+      <li>De geselecteerde datum is: <p id="selected_date">Choose a date</p>
+      </li>
+      <li>De geselecteerde medewerker is: <span class="medewerker_input_o"></span></li>
+      <li>De geselecteerde tijdslot is: <span class="tijdslot_input_o"></span></li>
+    </ul>
+
+  </div>
+</div>
+
+<div class="Reserverenheader">
+  <h3>Vul uw gegevens in</h3>
+</div>
+<div class="row">
+
+  <div class="col-xs-6 form-group">
+    <label for="voornaam">Voornaam</label>
+    <input class="form-control" id="voornaam" name="voornaam" placeholder="voornaam" value="{{voornaam}}" form="reservering_form">
+  </div>
+  <div class="col-xs-6 form-group">
+    <label for="achternaam">Achternaam</label>
+    <input class="form-control" id="achternaam" name="achternaam" placeholder="achternaam" value="{{achternaam}}" form="reservering_form">
+  </div>
+  <div class="col-xs-6 form-group">
+    <label for="email">Email</label>
+    <input type="email" class="form-control" id="email" name="email" placeholder="email" value="{{email}}" form="reservering_form">
+  </div>
+  <div class="col-xs-6 form-group">
+    <label for="telefoonnummer">Telefoonnummer</label>
+    <input class="form-control" id="telefoonnummer" name="telefoon" placeholder="telefoonnummer" value="{{telefoon}}" form="reservering_form">
+  </div>
+</div>
+<!-- </form> -->
+
+
+
+<form action="/reserveren/submit" method="POST" id="reservering_form">
+  <button type="submit" class="btn btn-minimal" id="reserveren_submit">Submit</button>
+</form>
+
+
+
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
+<script src="//code.jquery.com/jquery-1.12.4.js"></script>
+<script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script src="/static/scripts/reserveren_poc.js" onload="showDienst()"></script>
+<script src="/static/scripts/reserveren.js"></script>
+<link rel="stylesheet" type="text/css" href="/static/css/site.css" />
+
+{% endblock %}

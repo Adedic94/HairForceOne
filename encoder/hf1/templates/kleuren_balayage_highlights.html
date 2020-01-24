@@ -1,0 +1,43 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<body>
+
+	<table class="table2" style="width: 50%">
+		<thead>
+			<tr>
+				<th colspan="2">Behandelingen</th>
+			</tr>
+		</thead>
+		<tbody>
+				<h1>Kleuren, balayage en highlights</h1>
+
+				<p class='text_width'>Een andere of nieuwe haarkleur kan je kapsel net even dat extra ‘wauwh’ effect geven! Vaak zelfs meer als een nieuwe coupe. Dit kan zijn een paar subtiele high lights, een (glans)spoeling, een tijdelijke kleuring, een definitieve kleuring of je eerste grijze haren verbergen. Hierbij kijken we naar welke kleur het beste past bij je huidskleur en kapsel. Wij geven je heel graag een gratis advies hierin.
+				Krullend haar heeft bijvoorbeeld een andere kleurtechniek ‘nodig’ voor een mooi resultaat dan fijner en steiler haar. Samen kijken naar wat leuk bij je staat én het beste bij jou past.
+				
+				Tegenwoordig is het kleuren van je haar gelukkig niet meer zo schadelijk voor je haarconditie. De ontwikkelingen en technologie in het maken van verzorgende kleurproducten gaat steeds verder en sneller. Onze revolutionaire 10 minuten kleuringen geven mooie kleurresultaten zonder dat dit je haar beschadigd. De haarvezel blijft in tact! Met als resultaat binnen 10 minuten mooi gekleurd, glanzend en verzorgd haar!
+				<br><br>
+				<i>Succes gegarandeerd!</i></p>
+
+			{% for Dienst in diensten %}
+			<tr>
+				<td style="width: 80%">{{Dienst.omschrijving}}</td>
+				<td style="width: 20%" class="text-right">€ {{Dienst.prijs}}</td>
+			</tr>
+			{% endfor %}
+			
+		</tbody>
+	</table>
+
+	{% if ingelogd == true %}
+			<p>
+				<a class="btn btn-minimal" href="{{ url_for('bp_services.show_diensten_edit') }}">Behadelingen aanpassen</a>
+			</p>
+	{% endif %}
+
+	<p>
+		<a class="btn btn-minimal" href="{{ url_for('bp_reserveren.index') }}">Klik hier om een reservering te maken!</a>
+	</p>
+
+	{% endblock %}

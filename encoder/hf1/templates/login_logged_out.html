@@ -1,0 +1,11 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<h2>U bent uitgelogd</h2>
+
+<p>
+    <a class="btn btn-default" href="{{ url_for('bp_main.login') }}">Klik hier om opnieuw in te loggen</a>
+</p>
+
+{% endblock %}

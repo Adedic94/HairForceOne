@@ -1,0 +1,45 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<h2>{{ title }}</h2>
+<h3>{{ message }}</h3>
+
+
+<table class="table2" id="services" style="width: 50%" contenteditable="false">
+	<thead>
+		<tr>
+			<th style="width: 50%">Diensten</th>
+			<th style="width: 20%" class="text-right">€</th>
+			<th style="width: 10%" >Tijd</th>
+			<th style="width: 10%" >Vervallen</th>
+			<th style="width: 10%" >Verwijderen</th>
+		</tr>
+	</thead>
+	<tbody>
+		{% for Dienst in diensten %}
+		<tr>
+			<td style="width: 50%" contenteditable="true">{{Dienst.omschrijving}}</td>
+			<td style="width: 20%" class="text-right" contenteditable="true">{{Dienst.prijs}}</td>
+			<td style="width: 10%" contenteditable="true">{{Dienst.hoeveelheid_tijdslot}}</td>
+			<td style="width: 10%" contenteditable="true" >{{Dienst.vervallen}}</td>
+			<td style="width: 10%" contenteditable="true"><button class="btn btn-minimal" id="minus" onclick="$(this).closest('tr').remove();">-</button></td>
+		</tr>
+		{% endfor %}
+
+	</tbody>
+</table>
+<button class="btn btn-minimal" onclick="addRowOnclick()" id="add_dienst">+</button>
+
+<input class="invisible" type="text" id="diensten_tabel_input" form = "diensten_form" name="diensten_tabel" />
+
+<form action="/services/aanpassen/submit" method="POST" id="diensten_form">
+	<!-- <button type="submit" class="btn btn-default">Submit</button> -->
+	<button type="submit" class="btn btn-minimal" id="submit_diensten">Bevestigen</button>
+</form>
+
+
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
+<script src="//code.jquery.com/jquery-1.12.4.js"></script>
+<script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script src="/static/scripts/reserveren.js"></script>
+{% endblock %}

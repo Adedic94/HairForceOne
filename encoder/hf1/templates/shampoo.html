@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<body>
+
+	<table class="table2" style="width: 50%">
+		<thead>
+			<tr>
+				<th colspan="2">Shampoo</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for artikel in artikelgroepen %}
+			<tr>
+				<td style="width: 80%">{{artikel.omschrijving}}</td>
+				<td style="width: 20%" class="text-right">&euro;{{artikel.advies_verkoopprijs}}</td>
+			</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+
+	{% endblock %}

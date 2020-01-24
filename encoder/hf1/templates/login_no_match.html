@@ -1,0 +1,11 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<h2>Je username of wachtwoord klopt niet.</h2>
+
+<p>
+    <a class="btn btn-default" href="{{ url_for('bp_main.login') }}">Klik hier om het nogmaals te proberen</a>
+</p>
+
+{% endblock %}

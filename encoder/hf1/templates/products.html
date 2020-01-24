@@ -1,0 +1,127 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<body>
+
+
+
+	<!-- Page Content -->
+	<div class="container">
+
+		<h2 class="font-weight-light text-center text-lg-left mt-4 mb-0">{{ title }}</h2>
+
+		<hr class="mt-2 mb-5">
+
+		<div class="row text-center text-lg-left">
+
+
+
+			<!-- <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+				<div class="hovereffect">
+					<img class="img-responsive" src="http://placehold.it/350x250" alt="">
+					<div class="overlay">
+						<h2>Hover effect 5</h2>
+						<a class="info" href="#">link here</a>
+					</div>
+				</div>
+			</div> -->
+
+			<div class="col-lg-3 col-md-4 col-6">
+				<div class="hovereffect">
+					<img class="img-responsive" src="https://media.allure.com/photos/5771a9eb2554df47220a6ded/master/w_1600%2Cc_limit/beauty-trends-blogs-daily-beauty-reporter-2015-12-08-kardashian-product-400px-IMG_0510MOD-hi-res.jpeg" alt="">
+					<div class="overlay">
+						<h2>SHAMPOO</h2>
+						<a class='info' href="{{ url_for('bp_products.shampoo') }}">Klik hier</a>
+					</div>
+				</div>
+			</div>
+
+			<div class="col-lg-3 col-md-4 col-6">
+				<div class="hovereffect">
+					<img class="img-responsive" src="http://phytodess.com/wp-content/uploads/2015/12/Phytodess-Shampooing-aloe-vera-2180x1220-400x300.png" alt="">
+					<div class="overlay">
+						<h2>CONDITIONER</h2>
+						<a class='info' href="{{ url_for('bp_products.conditioner') }}">Klik hier</a>
+					</div>
+				</div>
+			</div>
+
+
+
+			<div class="col-lg-3 col-md-4 col-6">
+				<div class="hovereffect">
+					<img class="img-responsive" src="https://media.allure.com/photos/5771a2fe8d432b9e20f914f1/master/pass/beauty-trends-blogs-daily-beauty-reporter-Kardashian-group-blog.jpg" alt="">
+					<div class="overlay">
+						<h2>HAARSPRAY</h2>
+						<a class='info' href="{{ url_for('bp_products.spray') }}">Klik hier</a>
+					</div>
+				</div>
+			</div>
+
+
+
+			<div class="col-lg-3 col-md-4 col-6">
+				<div class="hovereffect">
+					<img class="img-responsive" src="https://www.angel-haircare.com/images/new_images//sunsuit-16363070206.jpg" alt="">
+					<div class="overlay">
+						<h2>VERZORGING</h2>
+						<a class='info' href="{{ url_for('bp_products.verzorging') }}">Klik hier</a>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-3 col-md-4 col-6">
+				<div class="hovereffect">
+					<img class="img-responsive" src="https://cmsimg-290a.kxcdn.com/bigarticles/justcust_edgy.jpg" alt="">
+					<div class="overlay">
+						<h2>GEL & WAX</h2>
+						<a class='info' href="{{ url_for('bp_products.gelwax') }}">Klik hier</a>
+					</div>
+				</div>
+			</div>
+
+			<div class="col-lg-3 col-md-4 col-6">
+				<div class="hovereffect">
+					<img class="img-responsive" src="https://ceesvos.com/wp-content/uploads/2019/05/oi.jpg" alt="">
+					<div class="overlay">
+						<h2>HAAR KLEURING</h2>
+						<a class='info' href="#">Coming soon</a>
+					</div>
+				</div>
+			</div>
+
+			<div class="col-lg-3 col-md-4 col-6">
+				<div class="hovereffect">
+					<img class="img-responsive" src="https://macadamiahair.com/media/catalog/category/cat-nourishingmoisture_1.png" alt="">
+					<div class="overlay">
+						<h2>MOUSE</h2>
+						<a class='info' href="#">Coming soon</a>
+					</div>
+				</div>
+			</div>
+
+
+		</div>
+
+		{% if ingelogd == true %}
+		<p>
+			<a class="btn btn-minimal" href="{{ url_for('bp_products.show_producten_edit') }}">Producten aanpassen</a>
+		</p>
+		{% endif %}
+	</div>
+	<!-- /.container -->
+
+
+	<style>
+		div.col-lg-3.col-md-4.col-6 {
+			padding-top: 15px;
+			padding-bottom: 15px;
+		}
+	</style>
+
+
+
+
+
+
+	{% endblock %}

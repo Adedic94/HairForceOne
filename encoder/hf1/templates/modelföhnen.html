@@ -1,0 +1,46 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<body>
+
+	<table class="table2" style="width: 50%">
+		<thead>
+			<tr>
+				<th colspan="2">Behandelingen</th>
+			</tr>
+		</thead>
+		<tbody>
+
+			<h2>Modelföhnen</h2>
+
+			<p class='text_width'>De juiste styling is belangrijk omdat dat dit iets zegt over wie je bent. 
+			Je kapsel moet vooral “dicht bij jezelf blijven”. Daarom luisteren wij goed naar onze klanten en kijken we 
+			samen naar jouw wensen voordat we beginnen met het knippen of kleuren van het haar. We nemen graag de tijd 
+			om met je te praten en zo te achterhalen wat jouw verwachtingen zijn. Dan kunnen wij aangeven of wij 
+			aan die verwachtingen kunnen voldoen.
+			Wij luisteren vanzelfsprekend naar je wensen! Maar er wordt ook gekeken naar welke haarstructuur je hebt.
+			<br><br>				
+			<i>Dus, ben wie je blijft. En bijzijn is meemaken!</i></p>
+
+			{% for Dienst in diensten %}
+			<tr>
+				<td style="width: 80%">{{Dienst.omschrijving}}</td>
+				<td style="width: 20%" class="text-right">€ {{Dienst.prijs}}</td>
+			</tr>
+			{% endfor %}
+			
+		</tbody>
+	</table>
+
+	{% if ingelogd == true %}
+			<p>
+				<a class="btn btn-minimal" href="{{ url_for('bp_services.show_diensten_edit') }}">Behadelingen aanpassen</a>
+			</p>
+	{% endif %}
+	
+	<p>
+		<a class="btn btn-minimal" href="{{ url_for('bp_reserveren.index') }}">klik hier om een reservering te maken!</a>
+	</p>
+	
+	{% endblock %}

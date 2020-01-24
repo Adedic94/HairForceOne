@@ -1,0 +1,24 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<h2>{{ title }}</h2>
+<h3>Test ben ik hier?</h3>
+
+<table class="table table-striped" style="width: 50%">
+	<thead>
+		<tr>
+			<th colspan="2">Orderoverzicht</th>
+		</tr>
+	</thead>
+	<tbody>
+		{% for Orderoverzicht in order %}
+		<tr>
+			<td style="width: 80%">{{Orderoverzicht.artikelen}}</td>
+			<td style="width: 20%" class="text-right">{{Orderoverzicht.totaalprijs}}</td>
+			</tr>
+		{% endfor %}
+		
+	</tbody>
+</table>
+
+{% endblock %}
